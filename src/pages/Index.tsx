@@ -1,12 +1,30 @@
-// Update this page (the content is just a fallback if you fail to update the page)
 
-const Index = () => {
+import React, { useEffect } from 'react';
+import ApologyHero from '@/components/ApologyHero';
+import SorryWall from '@/components/SorryWall';
+import MessageSection from '@/components/MessageSection';
+
+const Index: React.FC = () => {
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
+    <div className="min-h-screen">
+      <ApologyHero />
+      
+      <div id="sorries">
+        <SorryWall />
       </div>
+      
+      <MessageSection />
+      
+      <footer className="py-6 text-center text-apology-dark/60 bg-apology-light/90">
+        <div className="container mx-auto px-6">
+          <p className="text-sm">Made with love and regret. I hope this helps us heal.</p>
+        </div>
+      </footer>
     </div>
   );
 };
